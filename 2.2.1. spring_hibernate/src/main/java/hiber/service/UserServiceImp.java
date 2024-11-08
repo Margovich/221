@@ -26,4 +26,15 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
+   @Transactional
+   @Override
+   public User getUser(String model, int series) {
+      User result = userDao.getUser(model, series);
+      if (result == null) {
+         System.out.println("No user");
+      } else {
+         System.out.println(result);
+      }
+      return result;
+   }
 }
